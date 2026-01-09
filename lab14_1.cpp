@@ -2,18 +2,25 @@
 using namespace std;
 
 template <typename T>
-void insertionSort(T d[],int N){
-
-}
-
-int main(){
-	int a[10] = {12,25,30,44,2,0,4,7,55,25};
-	cout << "Input Array:";
-	for(int i = 0; i < 10; i++) cout << a[i] << " ";
-	cout << "\n\n";
-	
-	insertionSort(a,10);
-	
-	cout << "\nSorted Array:";
-	for(int i = 0; i < 10; i++) cout << a[i] << " ";	
+void insertionSort(T arr[],int N){
+    for(int x = 1 ; x < N;x++){
+        T datax = arr[x];
+        int y = x-1;
+        do{
+            T datay = arr[y];
+            if(datax > datay){
+                arr[y+1] = datay;
+                y -= 1;
+            }else{
+                break;
+            }
+        }while(y >= 0);
+        arr[y+1] = datax;
+        
+        cout << "Pass "<< x << ":";
+        for(int i =0; i<10 ;i++){
+            cout << arr[i] << " ";
+        }
+        cout << "\n";
+    }
 }
